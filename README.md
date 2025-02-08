@@ -10,7 +10,7 @@ python ./execute.py
 And in the computer with the code, run:
 
 ```bash
-python ./send.py <IP> <code>
+python ./send.py <IP> <path>
 ```
 
-Where `<IP>` is the IP of the computer that will execute the code and `<code>` is the python file with the code to be executed
+Where `<IP>` is the IP of the computer that will execute the code and `<path>` is the path to the python file with the code to be executed
