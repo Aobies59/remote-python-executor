@@ -19,8 +19,16 @@ def main(argc, argv):
         connectionSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         connectionSocket.connect((argv[1], 12000))
         connectionSocket.send(code.encode())
-        response = connectionSocket.recv(BUFSIZE).decode()
-        print(response)
+        executionResult = b""
+        while True:
+            response = connectionSocket.recv(BUFSIZE)
+            if not response:
+                break
+            executionResult += response
+            if len(executionResult) < BUFSIZE:
+                break
+        print(executionResult.decode())
+        connectionSocket.close()
     except Exception as e:
         print(e)
         return
